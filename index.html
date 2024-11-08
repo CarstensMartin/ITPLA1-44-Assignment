@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./logo.jpg" type="image/x-icon" />
+
     <title>Youth Development Program ITPLA1-44</title>
 
     <!--Import Style sheet and JS Script-->
@@ -14,16 +16,21 @@
     <h1>Community Youth Development Program</h1>
 
     <!-- File input to load student data -->
-     <h2>Open most recent file</h2>
+    <h2>Open most recent file</h2>
     <input type="file" id="fileInput" />
     <button onclick="loadData()">Load Data</button>
 
-    <br><hr />
+    <br />
+    <hr />
 
     <!-- Registration form for a new student -->
     <h2>Register new student</h2>
     <label for="studentId">ID Number:</label>
-    <input type="text" id="studentId" placeholder="Enter ID Number" />
+    <input
+      type="number"
+      id="studentId"
+      placeholder="Enter South African Student ID"
+    />
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" placeholder="Enter First Name" />
     <label for="lastName">Last Name:</label>
@@ -32,31 +39,37 @@
     <input
       type="text"
       id="courses"
-      placeholder="Enter Courses (comma separated)"
+      placeholder="Enter Courses (comma separated) ! Ensure no spaces !"
     />
     <button onclick="registerStudent()">Register Student</button>
 
     <!-- Save data to a file -->
     <button onclick="saveData()">Save Data to File</button>
 
-    <br><hr />
+    <br />
+    <hr />
 
     <!-- Add courses to an existing student -->
     <h2>Add courses to student</h2>
     <label for="studentIdCourse">Student ID:</label>
-    <input type="text" id="studentIdCourse" placeholder="Enter Student ID" />
+    <input
+      type="text"
+      id="studentIdCourse"
+      placeholder="Enter South African Student ID"
+    />
     <label for="newCourses">New Courses:</label>
     <input
       type="text"
       id="newCourses"
-      placeholder="Enter New Courses (comma separated)"
+      placeholder="Enter New Courses (comma separated) ! Ensure no spaces !"
     />
     <button onclick="addCourses()">Add Courses</button>
 
     <!-- Save data to a file -->
     <button onclick="saveData()">Save Data to File</button>
 
-    <br><hr />
+    <br />
+    <hr />
 
     <!-- Add attendance to a course -->
     <h2>Add attendance for a course</h2>
@@ -64,29 +77,108 @@
     <input
       type="text"
       id="studentIdAttendance"
-      placeholder="Enter Student ID"
+      placeholder="Enter South African Student ID"
     />
     <label for="courseAttendance">Course Name:</label>
     <input type="text" id="courseAttendance" placeholder="Enter Course Name" />
-    
+
     <button onclick="markAttendance()">Mark Attendance</button>
 
     <!-- Save data to a file -->
     <button onclick="saveData()">Save Data to File</button>
 
-    <br><hr /><br>
+    <br />
+    <hr />
 
+    <!-- Mark course completion for a student -->
+    <h2>Mark course completion</h2>
+    <label for="studentIdCompletion">Student ID:</label>
+    <input
+      type="number"
+      id="studentIdCompletion"
+      placeholder="Enter South African Student ID"
+    />
+    <label for="courseCompletion">Course Name:</label>
+    <input type="text" id="courseCompletion" placeholder="Enter Course Name" />
+    <label for="isCompleted">Completed:</label>
+    <select id="isCompleted">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <button onclick="markCompletion()">Mark Completion</button>
+
+    <!-- Save data to a file -->
+    <button onclick="saveData()">Save Data to File</button>
+
+    <br />
+    <hr />
+
+    <h2>Check course eligibility</h2>
+    <label for="eligibilityStudentId">Student ID:</label>
+    <input
+      type="text"
+      id="eligibilityStudentId"
+      placeholder="Enter South African Student ID"
+    />
+
+    <label for="eligibilityPrereqCourse">Prerequisite Course Name:</label>
+    <input
+      type="text"
+      id="eligibilityPrereqCourse"
+      placeholder="Enter Prerequisite Course Name"
+    />
+
+    <label for="eligibilityTotalClasses"
+      >Total Classes in Prerequisite Course:</label
+    >
+    <input
+      type="number"
+      id="eligibilityTotalClasses"
+      placeholder="Enter Total Classes"
+    />
+
+    <button onclick="checkEligibility()">Check Eligibility</button>
+
+    <p id="eligibilityResult"></p>
+
+    <br />
+    <hr />
+    <br />
+
+    <h2>Course attendance report</h2>
     <!-- Button to generate report -->
-    <button onclick="generateReport()" id="generateReport">Generate Attendance Report</button>
+    <button onclick="generateReport()" class="generateReport">
+      Generate Attendance Report
+    </button>
 
     <!-- Div to display the report -->
     <div id="reportContainer"></div>
 
-    <br><br><hr />
+    <br /><br />
+    <hr />
 
-    <footer>
-        ITPLA1-44 Project | Martin Carstens
-    </footer>
+    <h2>Course performance report</h2>
+    <button onclick="generatePerformanceReport()" class="generateReport">
+      Generate Performance Report
+    </button>
 
+    <div id="performanceReportContainer"></div>
+
+    <br /><br />
+    <hr />
+
+    <h2>Course registration report</h2>
+    <label for="moduleNameInput">Enter Course Name:</label>
+    <input type="text" id="moduleNameInput" placeholder="Enter module name" />
+    <button onclick="generateModuleReport()" class="generateReport">
+      Generate Course Report
+    </button>
+
+    <div id="moduleReportContainer"></div>
+
+    <br /><br />
+    <hr />
+
+    <footer>ITPLA1-44 Project | Martin Carstens</footer>
   </body>
 </html>

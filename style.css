@@ -5,27 +5,32 @@ h1 {
 }
 
 /*Labels and inputs*/
-label,input,select,button {
+label,
+input,
+select,
+button {
   display: block;
   margin: 8px 0;
   width: 50%;
 }
 
 /*Make generate report stand out*/
-#generateReport{
-    background-color: lime;
+.generateReport {
+  background-color: lime;
 }
-
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
-table,th,td {
+table,
+th,
+td {
   border: 1px solid #ddd;
 }
-th,td {
+th,
+td {
   padding: 8px;
   text-align: left;
 }
